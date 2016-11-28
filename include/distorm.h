@@ -14,6 +14,8 @@ This library is licensed under the BSD license. See the file COPYING.
 #ifndef DISTORM_H
 #define DISTORM_H
 
+#pragma pack(push, 1)
+
 /*
  * 64 bit offsets support:
  * If the diStorm library you use was compiled with 64 bits offsets,
@@ -23,10 +25,10 @@ This library is licensed under the BSD license. See the file COPYING.
  * Turned on by default!
  */
 
-#if !(defined(DISTORM_STATIC) || defined(DISTORM_DYNAMIC))
-	/* Define this macro for outer projects by default. */
-	#define SUPPORT_64BIT_OFFSET
-#endif
+//#if !(defined(DISTORM_STATIC) || defined(DISTORM_DYNAMIC))
+//	/* Define this macro for outer projects by default. */
+//	#define SUPPORT_64BIT_OFFSET
+//#endif
 
 /* TINYC has a problem with some 64bits library functions, so ignore 64 bit offsets. */
 #ifdef __TINYC__
@@ -478,5 +480,7 @@ unsigned int distorm_version();
 #ifdef __cplusplus
 } /* End Of Extern */
 #endif
+
+#pragma pack(pop)
 
 #endif /* DISTORM_H */
